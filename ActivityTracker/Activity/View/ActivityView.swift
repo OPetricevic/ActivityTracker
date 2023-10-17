@@ -7,14 +7,18 @@
 
 import SwiftUI
 
-struct ActivityView : View {
+struct ActivityView: View {
+    
+    @StateObject private var activityViewModel = ActivityViewModel()
+    
     var body: some View {
-        ZStack{
+        ZStack {
             Color(uiColor: .systemGray6)
                 .cornerRadius(10)
-            VStack(spacing: 15){
-                HStack(alignment: .top){
-                    VStack(alignment: .leading, spacing: 5 ){
+            
+            VStack(spacing: 15) {
+                HStack(alignment: .top) {
+                    VStack(alignment: .leading, spacing: 5) {
                         Text("Daily Steps")
                             .font(.system(size: 16))
                         
@@ -27,12 +31,20 @@ struct ActivityView : View {
                         .foregroundColor(.green)
                 }
                 
-                Text("5,251")
-                    .font(.system(size: 20))
-            }.padding()
+                if let steps = activityViewModel.steps {
+                    Text("\(steps)")
+                        .font(.system(size: 20))
+                } else {
+                    Text("Loading...") // You might want to handle loading state here
+                        .font(.system(size: 20))
+                }
+            }
+            .padding()
             .cornerRadius(15)
         }
-        
+        .onAppear {
+            activityViewModel.initializePedometer()
+        }
     }
 }
 
