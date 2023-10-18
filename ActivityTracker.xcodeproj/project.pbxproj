@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF08A6E02ADE6C5F0036ABCA /* ActivitySummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF08A6DF2ADE6C5F0036ABCA /* ActivitySummaryView.swift */; };
+		FF08A6E32ADE74A20036ABCA /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF08A6E22ADE74A20036ABCA /* ActivityViewModel.swift */; };
 		FFDDFAD92ADAF56C008B5E18 /* ActivityTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDDFAD82ADAF56C008B5E18 /* ActivityTrackerApp.swift */; };
 		FFDDFADB2ADAF56C008B5E18 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDDFADA2ADAF56C008B5E18 /* ContentView.swift */; };
 		FFDDFADD2ADAF56E008B5E18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFDDFADC2ADAF56E008B5E18 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FF08A6DF2ADE6C5F0036ABCA /* ActivitySummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitySummaryView.swift; sourceTree = "<group>"; };
+		FF08A6E22ADE74A20036ABCA /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
 		FFDDFAD52ADAF56C008B5E18 /* ActivityTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActivityTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFDDFAD82ADAF56C008B5E18 /* ActivityTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTrackerApp.swift; sourceTree = "<group>"; };
 		FFDDFADA2ADAF56C008B5E18 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +36,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FF08A6E12ADE6C7F0036ABCA /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				FF08A6E52ADE74B90036ABCA /* View */,
+				FF08A6E42ADE74AE0036ABCA /* ViewModel */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
+		FF08A6E42ADE74AE0036ABCA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FF08A6E22ADE74A20036ABCA /* ActivityViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FF08A6E52ADE74B90036ABCA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FF08A6DF2ADE6C5F0036ABCA /* ActivitySummaryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		FFDDFACC2ADAF56C008B5E18 = {
 			isa = PBXGroup;
 			children = (
@@ -53,6 +82,7 @@
 			children = (
 				FFDDFAD82ADAF56C008B5E18 /* ActivityTrackerApp.swift */,
 				FFDDFADA2ADAF56C008B5E18 /* ContentView.swift */,
+				FF08A6E12ADE6C7F0036ABCA /* Activity */,
 				FFDDFADC2ADAF56E008B5E18 /* Assets.xcassets */,
 				FFDDFADE2ADAF56E008B5E18 /* Preview Content */,
 			);
@@ -139,6 +169,8 @@
 			files = (
 				FFDDFADB2ADAF56C008B5E18 /* ContentView.swift in Sources */,
 				FFDDFAD92ADAF56C008B5E18 /* ActivityTrackerApp.swift in Sources */,
+				FF08A6E02ADE6C5F0036ABCA /* ActivitySummaryView.swift in Sources */,
+				FF08A6E32ADE74A20036ABCA /* ActivityViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +302,7 @@
 				DEVELOPMENT_TEAM = TWS9PC72LA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMotionUsageDescription = "This app requires to access motion data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -299,6 +332,7 @@
 				DEVELOPMENT_TEAM = TWS9PC72LA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMotionUsageDescription = "This app requires to access motion data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

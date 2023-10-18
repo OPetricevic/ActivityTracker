@@ -7,32 +7,34 @@
 
 import SwiftUI
 
-struct ActivityView: View {
-    
-    @StateObject private var activityViewModel = ActivityViewModel()
-    
+struct ActivitySummaryView: View {
+    var title: String
+    var goal: String
+    var iconName: String
+    var value: String?
+
     var body: some View {
         ZStack {
             Color(uiColor: .systemGray6)
                 .cornerRadius(10)
-            
+
             VStack(spacing: 15) {
                 HStack(alignment: .top) {
                     VStack(alignment: .leading, spacing: 5) {
-                        Text("Daily Steps")
+                        Text(title)
                             .font(.system(size: 16))
-                        
-                        Text("Goal: 10,000 Steps")
+
+                        Text(goal)
                             .font(.system(size: 12))
                     }
                     Spacer()
-                    
-                    Image(systemName: "figure.walk")
+
+                    Image(systemName: iconName)
                         .foregroundColor(.green)
                 }
-                
-                if let steps = activityViewModel.steps {
-                    Text("\(steps)")
+
+                if let value = value {
+                    Text("\(value)")
                         .font(.system(size: 20))
                 } else {
                     Text("Loading...") // You might want to handle loading state here
@@ -42,14 +44,11 @@ struct ActivityView: View {
             .padding()
             .cornerRadius(15)
         }
-        .onAppear {
-            activityViewModel.initializePedometer()
-        }
     }
 }
 
 struct ActivityView_Previews: PreviewProvider {
     static var previews: some View {
-        ActivityView()
+        ActivitySummaryView(title: "Steps Last 7 Days", goal: "10,000", iconName: "figure.walk")
     }
 }
