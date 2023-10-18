@@ -22,6 +22,9 @@ struct ContentView: View {
                                     goal: "Goal: 25km",
                                     iconName: "figure.walk",
                                     value: activityViewModel.distance.map { "\($0)km" })
+                MapView(viewModel: activityViewModel)
+                    .edgesIgnoringSafeArea(.all)
+                    .frame(height: 300)
                 
             }
             .onAppear {
