@@ -82,7 +82,6 @@
 		FFDDFACC2ADAF56C008B5E18 = {
 			isa = PBXGroup;
 			children = (
-				FF4749EE2AE6A9990003F449 /* RootView.swift */,
 				FFDDFAD72ADAF56C008B5E18 /* ActivityTracker */,
 				FFDDFAD62ADAF56C008B5E18 /* Products */,
 			);
@@ -99,6 +98,7 @@
 		FFDDFAD72ADAF56C008B5E18 /* ActivityTracker */ = {
 			isa = PBXGroup;
 			children = (
+				FF4749EE2AE6A9990003F449 /* RootView.swift */,
 				FFDDFAD82ADAF56C008B5E18 /* ActivityTrackerApp.swift */,
 				FFDDFADA2ADAF56C008B5E18 /* ContentView.swift */,
 				FF4749F22AE6AA390003F449 /* Settings */,
