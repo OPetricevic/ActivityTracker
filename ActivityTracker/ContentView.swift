@@ -8,31 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @ObservedObject var activityViewModel = ActivityViewModel()
-    
     var body: some View {
-        VStack {
-            LazyVGrid(columns: Array(repeating: GridItem(spacing: 10), count: 2)) {
-                ActivitySummaryView(title: "Steps Last 7 Days",
-                                    goal: "Goal: 50,000 Steps",
-                                    iconName: "figure.walk",
-                                    value: activityViewModel.steps.map { "\($0)" })
-                ActivitySummaryView(title: "Distance Crossed Last 7 Days",
-                                    goal: "Goal: 25km",
-                                    iconName: "figure.walk",
-                                    value: activityViewModel.distance.map { "\($0)km" })
-                MapView(viewModel: activityViewModel)
-                    .edgesIgnoringSafeArea(.all)
-                    .frame(height: 300)
-                
+        TabView {
+            
+            RootView()
+            .tabItem {
+                Label("Activity", systemImage: "figure.run.square.stack")
             }
-            .onAppear {
-                activityViewModel.initializePedometer()
+          AddWorkoutView()
+            .tabItem {
+                Label("Add Workout", systemImage: "plus.square.fill")
             }
-            .padding(.horizontal)
-        }
-    }
+
+            SettingsView()
+            .tabItem {
+                Label("Settings", systemImage: "gearshape.fill")
+            }
+        }    }
 }
 
 struct ContentView_Previews: PreviewProvider {

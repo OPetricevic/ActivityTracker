@@ -37,7 +37,7 @@ struct ActivitySummaryView: View {
                     Text("\(value)")
                         .font(.system(size: 20))
                 } else {
-                    Text("Loading...") // You might want to handle loading state here
+                    Text("Loading...") 
                         .font(.system(size: 20))
                 }
             }
