@@ -5,8 +5,6 @@
 //  Created by Omar Petričević on 17.10.2023..
 //
 
-// ActivityViewModel.swift
-
 import SwiftUI
 import CoreMotion
 import CoreLocation
@@ -19,6 +17,7 @@ class ActivityViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var steps: Int?
     @Published var distance: Double?
     @Published var userPath: [CLLocationCoordinate2D] = []
+    @Published var isTracking: Bool = false
 
     private var isPedometerAvailable: Bool {
         return CMPedometer.isPedometerEventTrackingAvailable() && CMPedometer.isDistanceAvailable() && CMPedometer.isStepCountingAvailable()
@@ -41,6 +40,7 @@ class ActivityViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
                 print("\(String(describing: self.steps))")
 
                 if let distance = data.distance?.doubleValue {
+
                     let distanceInKilometers = distance / 1000
 
                     let formattedDistance = String(format: "%.2f", distanceInKilometers)
@@ -59,9 +59,39 @@ class ActivityViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        // Handle location updates
-        guard let latestLocation = locations.last else { return }
+
+        guard isTracking, let latestLocation = locations.last else { return }
         userPath.append(latestLocation.coordinate)
-        // Update other data and UI as needed
     }
+
+    
+    func startStopTracking() {
+        isTracking.toggle()
+    }
+    
+    
+    
+    
+    //MARK: HealthKit methods for sleep tracking
+//        private func requestSleepAuthorization() {
+//            let sleepType = HKObjectType.categoryType(forIdentifier: .sleepAnalysis)!
+//
+//            healthStore.requestAuthorization(toShare: nil, read: [sleepType]) { _, _ in
+//                // Handle authorization completion if needed
+//            }
+//        }
+//
+//        func startSleepTracking() {
+//            let sleepType = HKObjectType.categoryType(forIdentifier: .sleepAnalysis)!
+//            let sleepCategory = HKCategoryValueSleepAnalysis.asleep.rawValue
+//            let startDate = Date() // Set your desired start time
+//            let endDate = Date() // Set your desired end time
+//
+//            let sleepSample = HKCategorySample(type: sleepType, value: sleepCategory, start: startDate, end: endDate)
+//
+//            healthStore.save(sleepSample) { success, error in
+//                // Handle save completion if needed
+//            }
+//        }
+//
 }

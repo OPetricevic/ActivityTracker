@@ -11,7 +11,7 @@ struct ContentView: View {
     var body: some View {
         TabView {
             
-            RootView()
+            ActivityDashboardView()
             .tabItem {
                 Label("Activity", systemImage: "figure.run.square.stack")
             }

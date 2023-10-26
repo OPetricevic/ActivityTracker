@@ -11,7 +11,7 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             VStack{
-                Text("TestingSettings")
+                Text("SettingsTest")
             }
             .navigationTitle("Settings")
             .padding()

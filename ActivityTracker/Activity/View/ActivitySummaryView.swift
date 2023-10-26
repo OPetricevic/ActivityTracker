@@ -17,7 +17,6 @@ struct ActivitySummaryView: View {
         ZStack {
             Color(uiColor: .systemGray6)
                 .cornerRadius(10)
-
             VStack(spacing: 15) {
                 HStack(alignment: .top) {
                     VStack(alignment: .leading, spacing: 5) {

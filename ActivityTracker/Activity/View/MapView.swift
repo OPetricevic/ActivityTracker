@@ -1,13 +1,3 @@
-//
-//  MapView.swift
-//  ActivityTracker
-//
-//  Created by Omar Petričević on 18.10.2023..
-//
-
-import SwiftUI
-import MapKit
-
 import SwiftUI
 import MapKit
 
@@ -23,15 +13,12 @@ struct MapView: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: MKMapView, context: Context) {
-        // Remove previous overlays
         uiView.removeOverlays(uiView.overlays)
 
-        // Add a polyline overlay for the user's path
         let polyline = MKPolyline(coordinates: viewModel.userPath, count: viewModel.userPath.count)
         uiView.addOverlay(polyline)
 
-        // Set the region based on user's location
-        if let userCoordinate = viewModel.userPath.last {
+        if let userCoordinate = viewModel.userPath.last, viewModel.isTracking {
             setRegion(for: uiView, coordinate: userCoordinate)
         }
     }
@@ -43,5 +30,32 @@ struct MapView: UIViewRepresentable {
         )
         mapView.setRegion(region, animated: true)
     }
+    
+    class Coordinator: NSObject, MKMapViewDelegate {
+        var parent: MapView
+
+        init(parent: MapView) {
+            self.parent = parent
+        }
+
+        func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+            if let polyline = overlay as? MKPolyline {
+                let renderer = MKPolylineRenderer(polyline: polyline)
+                renderer.strokeColor = .blue
+                renderer.lineWidth = 3
+                return renderer
+            }
+            return MKOverlayRenderer(overlay: overlay)
+        }
+    }
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(parent: self)
+    }
 }
 
+struct MapView_Previews: PreviewProvider {
+    static var previews: some View {
+        MapView(viewModel: ActivityViewModel())
+    }
+}

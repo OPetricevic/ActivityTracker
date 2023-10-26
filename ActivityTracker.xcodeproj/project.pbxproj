@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		FF08A6E02ADE6C5F0036ABCA /* ActivitySummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF08A6DF2ADE6C5F0036ABCA /* ActivitySummaryView.swift */; };
 		FF08A6E32ADE74A20036ABCA /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF08A6E22ADE74A20036ABCA /* ActivityViewModel.swift */; };
-		FF4749EF2AE6A9990003F449 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4749EE2AE6A9990003F449 /* RootView.swift */; };
+		FF4749EF2AE6A9990003F449 /* ActivityDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4749EE2AE6A9990003F449 /* ActivityDashboardView.swift */; };
 		FF4749F12AE6AA1F0003F449 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4749F02AE6AA1F0003F449 /* SettingsView.swift */; };
 		FF4749F52AE6B1780003F449 /* AddWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4749F42AE6B1780003F449 /* AddWorkoutView.swift */; };
+		FF4795342AE8FE6B00C99234 /* MapActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4795332AE8FE6B00C99234 /* MapActivityView.swift */; };
 		FFD335372ADFD9BD00D8BD33 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD335362ADFD9BD00D8BD33 /* MapView.swift */; };
 		FFDDFAD92ADAF56C008B5E18 /* ActivityTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDDFAD82ADAF56C008B5E18 /* ActivityTrackerApp.swift */; };
 		FFDDFADB2ADAF56C008B5E18 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDDFADA2ADAF56C008B5E18 /* ContentView.swift */; };
@@ -22,9 +23,10 @@
 /* Begin PBXFileReference section */
 		FF08A6DF2ADE6C5F0036ABCA /* ActivitySummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitySummaryView.swift; sourceTree = "<group>"; };
 		FF08A6E22ADE74A20036ABCA /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
-		FF4749EE2AE6A9990003F449 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		FF4749EE2AE6A9990003F449 /* ActivityDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDashboardView.swift; sourceTree = "<group>"; };
 		FF4749F02AE6AA1F0003F449 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FF4749F42AE6B1780003F449 /* AddWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkoutView.swift; sourceTree = "<group>"; };
+		FF4795332AE8FE6B00C99234 /* MapActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapActivityView.swift; sourceTree = "<group>"; };
 		FFD335362ADFD9BD00D8BD33 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		FFDDFAD52ADAF56C008B5E18 /* ActivityTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ActivityTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFDDFAD82ADAF56C008B5E18 /* ActivityTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTrackerApp.swift; sourceTree = "<group>"; };
@@ -47,6 +49,7 @@
 		FF08A6E12ADE6C7F0036ABCA /* Activity */ = {
 			isa = PBXGroup;
 			children = (
+				FF4795322AE8FE5100C99234 /* MapActivity */,
 				FF08A6E52ADE74B90036ABCA /* View */,
 				FF08A6E42ADE74AE0036ABCA /* ViewModel */,
 			);
@@ -79,6 +82,14 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		FF4795322AE8FE5100C99234 /* MapActivity */ = {
+			isa = PBXGroup;
+			children = (
+				FF4795332AE8FE6B00C99234 /* MapActivityView.swift */,
+			);
+			path = MapActivity;
+			sourceTree = "<group>";
+		};
 		FFDDFACC2ADAF56C008B5E18 = {
 			isa = PBXGroup;
 			children = (
@@ -98,9 +109,9 @@
 		FFDDFAD72ADAF56C008B5E18 /* ActivityTracker */ = {
 			isa = PBXGroup;
 			children = (
-				FF4749EE2AE6A9990003F449 /* RootView.swift */,
-				FFDDFAD82ADAF56C008B5E18 /* ActivityTrackerApp.swift */,
 				FFDDFADA2ADAF56C008B5E18 /* ContentView.swift */,
+				FF4749EE2AE6A9990003F449 /* ActivityDashboardView.swift */,
+				FFDDFAD82ADAF56C008B5E18 /* ActivityTrackerApp.swift */,
 				FF4749F22AE6AA390003F449 /* Settings */,
 				FF08A6E12ADE6C7F0036ABCA /* Activity */,
 				FFDDFADC2ADAF56E008B5E18 /* Assets.xcassets */,
@@ -188,10 +199,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF4749F12AE6AA1F0003F449 /* SettingsView.swift in Sources */,
+				FF4795342AE8FE6B00C99234 /* MapActivityView.swift in Sources */,
 				FF4749F52AE6B1780003F449 /* AddWorkoutView.swift in Sources */,
 				FFDDFADB2ADAF56C008B5E18 /* ContentView.swift in Sources */,
 				FFDDFAD92ADAF56C008B5E18 /* ActivityTrackerApp.swift in Sources */,
-				FF4749EF2AE6A9990003F449 /* RootView.swift in Sources */,
+				FF4749EF2AE6A9990003F449 /* ActivityDashboardView.swift in Sources */,
 				FFD335372ADFD9BD00D8BD33 /* MapView.swift in Sources */,
 				FF08A6E02ADE6C5F0036ABCA /* ActivitySummaryView.swift in Sources */,
 				FF08A6E32ADE74A20036ABCA /* ActivityViewModel.swift in Sources */,
